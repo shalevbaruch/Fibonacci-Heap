@@ -68,9 +68,10 @@ public class FibonacciHeap
             return;
         }
         else if (this.min.child == null){
-            this.min = null;
+            HeapNode temp_min = this.min.right;
+            this.min.removeMin();
+            this.min = temp_min;
             this.size-=1;
-            return;
         }
         else{
             HeapNode temp = this.min.child;
