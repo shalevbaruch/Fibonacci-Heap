@@ -114,22 +114,25 @@ public class FibonacciHeap
         HeapNode[] rank_arr = new HeapNode[this.size+1];
         HeapNode[] roots_arr = new HeapNode[this.size];
         int i=0;
-        HeapNode temp = this.min.right;
+        HeapNode temp = this.min;
         roots_arr[i] = temp;
-        temp = temp.right;
         i+=1;
-        while (temp!= this.min){
-            roots_arr[i] = temp;
+        while ((temp!= this.min || i==1)&& i<roots_arr.length){
             temp = temp.right;
+            roots_arr[i] = temp;
             i+=1;
         }
         this.findNewMin(roots_arr);
         i=0;
-        temp = this.min.right;
-        while (temp != this.min){
+        temp = this.min;
+        while ((temp != this.min || i==0)&& i<roots_arr.length){
             if (temp == null){
+                System.out.println(i);
                 break;
             }
+            //System.out.println("h");
+            //if (temp.left == null || temp.right == null || temp == null)
+            //   System.out.println(temp.getKey());
             if (rank_arr[temp.getRank()] == null){
                 rank_arr[temp.getRank()] = temp;
             }
@@ -142,7 +145,8 @@ public class FibonacciHeap
             }
             rank_arr[temp.getRank()] = temp;
             i+=1;
-            temp = roots_arr[i];
+            if (i<roots_arr.length)
+                temp = roots_arr[i];
         }
         HeapNode first_node = null;
         HeapNode last_node = null;
