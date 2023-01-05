@@ -176,7 +176,7 @@ public class FibonacciHeap
             bigger.left = bigger;
             smaller.setRank(smaller.getRank()+1);
         }
-        this.links_cnt+=1;
+        links_cnt+=1;
         return smaller;
     }
     public HeapNode findMin()

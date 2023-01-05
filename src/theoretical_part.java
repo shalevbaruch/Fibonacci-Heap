@@ -8,8 +8,8 @@ import static java.lang.Math.pow;
 
 public class theoretical_part {
     public static void main(String[] args) {
-        System.out.println((int)pow(2,5));
-    //build((int)pow(2,5));
+        //System.out.println((int)pow(2,5));
+        System.out.println(build((int)pow(2,10)));
     }
     public static List<Double> build(int m){
         long startTime = System.nanoTime();
