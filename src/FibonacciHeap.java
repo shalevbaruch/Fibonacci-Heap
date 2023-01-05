@@ -164,6 +164,7 @@ public class FibonacciHeap
                 root.right = first_node;
             }
         }
+        this.first = first_node;
     }
     public HeapNode Link(HeapNode node1, HeapNode node2){
         HeapNode smaller;
