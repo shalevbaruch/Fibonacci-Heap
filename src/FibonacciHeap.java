@@ -3,6 +3,7 @@
  *
  * An implementation of a Fibonacci Heap over integers.
  */
+
 public class FibonacciHeap
 {
     private HeapNode min;
@@ -101,9 +102,12 @@ public class FibonacciHeap
     public void findNewMin(HeapNode[] arr){
         this.min = this.min.right;
         for (HeapNode node: arr){
-            if (node.getKey()<min.getKey()){
-                min = node;
+            if (node != null){
+                if (node.getKey()<min.getKey()){
+                    min = node;
+                }
             }
+
         }
     }
     public void Successive_Linking (){
@@ -112,6 +116,7 @@ public class FibonacciHeap
         int i=0;
         HeapNode temp = this.min.right;
         roots_arr[i] = temp;
+        temp = temp.right;
         i+=1;
         while (temp!= this.min){
             roots_arr[i] = temp;
@@ -122,6 +127,9 @@ public class FibonacciHeap
         i=0;
         temp = this.min.right;
         while (temp != this.min){
+            if (temp == null){
+                break;
+            }
             if (rank_arr[temp.getRank()] == null){
                 rank_arr[temp.getRank()] = temp;
             }
@@ -437,3 +445,5 @@ public class FibonacciHeap
         }
     }
 }
+
+
