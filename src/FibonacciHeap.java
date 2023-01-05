@@ -67,6 +67,11 @@ public class FibonacciHeap
             this.size-=1;
             return;
         }
+        else if (this.min.child == null){
+            this.min = null;
+            this.size-=1;
+            return;
+        }
         else{
             HeapNode temp = this.min.child;
             temp.parent = null;
@@ -431,4 +436,3 @@ public class FibonacciHeap
         }
     }
 }
-
