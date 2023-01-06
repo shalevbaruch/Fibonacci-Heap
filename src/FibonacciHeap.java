@@ -148,23 +148,19 @@ public class FibonacciHeap
             if (i<roots_arr.length)
                 temp = roots_arr[i];
         }
-        HeapNode first_node = null;
-        HeapNode last_node = null;
-        for (HeapNode root: roots_arr){
+        HeapNode check = null;
+        for (HeapNode root: rank_arr){
             if (root == null)
                 continue;
-            if (first_node==null)
-                first_node = root;
-            if (last_node==null){
-                last_node = root;
+            if (check==null){
+                this.first = root;
                 continue;
             }
             if (root!= null){
-                root.left = last_node;
-                root.right = first_node;
+                this.first.add_latest(root);
+                this.first = root;
             }
         }
-        this.first = first_node;
     }
     public HeapNode Link(HeapNode node1, HeapNode node2){
         HeapNode smaller;
@@ -294,6 +290,7 @@ public class FibonacciHeap
         if (y.parent!= null){
             if (!y.marked){
                 this.mark_cnt+=1;
+                y.marked = true;
             }
             else
                 cascading_cut(y,y.parent);
