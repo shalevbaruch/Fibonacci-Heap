@@ -301,7 +301,10 @@ public class FibonacciHeap
     public void cut(HeapNode x, HeapNode y){
         FibonacciHeap.cuts_cnt+=1;
         x.parent = null;
-        x.marked = false;
+        if (x.marked){
+            this.mark_cnt -= 1;
+            x.marked = false;
+        }
         y.rank-=1;
         if (x.right == x){
             y.child = null;

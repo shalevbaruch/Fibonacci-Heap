@@ -1,0 +1,2951 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0em}{#1\ \thesection}
+\titleformat{name=\section,numberless}{\normalfont\Large\bfseries}{}{0em}{#1}
+
+\usepackage{xcolor}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "David CLM"
+\font_sans "helvet" "Simple CLM"
+\font_typewriter "courier" "Miriam Mono CLM"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\headheight 0.5in
+\headsep 0.5in
+\footskip 0.5in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 2 5 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "../../lyx/macros.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+תרגיל
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מעשי
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+חלק תיאורטי
+\begin_inset Newline newline
+\end_inset
+
+שלו ברוך ויונתן נתנאל 
+\end_layout
+
+\begin_layout Section
+שאלה
+\end_layout
+
+\begin_layout Standard
+א.
+ מכך שכל הכנסה לוקחת 
+\begin_inset Formula $O(1)$
+\end_inset
+
+ ויש 
+\begin_inset Formula $O(m)$
+\end_inset
+
+ הכנסות, עלות ההכנסות היא 
+\begin_inset Formula $O(m)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כמו כן, מכך שב 
+\begin_inset Formula $deletemin$
+\end_inset
+
+ נצטרך למצוא את המינימום מחדש, ויש בערימה 
+\begin_inset Formula $m$
+\end_inset
+
+ שורשים שונים לאחר ההסרה )כלומר 
+\begin_inset Formula $m$
+\end_inset
+
+ מועמדים שונים(,למעשה נקבל את המקרה הגרוע של 
+\begin_inset Formula $deletemin$
+\end_inset
+
+ ולכן העלות תהיה 
+\begin_inset Formula $O(m)$
+\end_inset
+
+.
+ כמו כן, נשים לב כי כל פעולת 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ עולה 
+\begin_inset Formula $O(1)$
+\end_inset
+
+, מפני שבכל פעם שמתבצע 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ הורה אחר הופך להיות מסומן )מלבד השורש של העץ שאף פעם לא נהפך למסומן ללא
+ תלות במספר הילדים שאיבד(, כלומר לא נוצר מצב שבו הורה מאבד שני בנים ולכן
+ העלות היא קבועה )יש צורך רק בשינוי הערך של הצומת אותו הפונקציה 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ קיבלה כפרמטר וניתוק העץ שהצומת הנל הוא שורשו ששקול לשינוי מספר קבוע של
+ פוינטרים(.
+ כתוצאה מכך ומהעובדה שיש 
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+ פעולות 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+, נקבל כי עלות סך כל פעולות ה 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ הוא 
+\begin_inset Formula $O(logm)$
+\end_inset
+
+ וסך עלות התכנית היא 
+\begin_inset Formula $O(m)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+ב.
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+m
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+RunTime (ms)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+totalLinks
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+totalCuts
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+Potential
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{10}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{15}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{20}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ג.
+ 
+\begin_inset Formula $totalCuts=log_{2}m$
+\end_inset
+
+ - ראשית, פעולת 
+\begin_inset Formula $cut$
+\end_inset
+
+ יכולה להתבצע רק בעת קריאה ל
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+.
+ כמו כן, כפי שנאמר בסעיף א', בכל פעם שמתבצע 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ הורה אחר הופך להיות מסומן, ומכך לא נוצר מצב שבו הורה שהיה מסומן מאבד בן
+ נוסף )אם זה היה קורה היינו צריכים לבצע עוד 
+\begin_inset Formula $cut$
+\end_inset
+
+ בצורה רקורסיבית על האב לפי האלגוריתם(.
+ לכן, בכל קריאה ל 
+\begin_inset Formula $decreaseKey(k,l)$
+\end_inset
+
+ יש בדיוק 
+\begin_inset Formula $cut$
+\end_inset
+
+ אחד עם הפרמטרים 
+\begin_inset Formula $k,k.parent$
+\end_inset
+
+ ומאחר שההורה לא היה מסומן הוא עכשיו הופך להיות מסומן ונעצור עם הקריאות
+ ל 
+\begin_inset Formula $cut$
+\end_inset
+
+.
+ מכך שיש 
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+ קריאות ל 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ נקבל שיש 
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+ פעולות 
+\begin_inset Formula $cut$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $totalLinks=m-1$
+\end_inset
+
+.
+ נוכיח באינדוקציה:
+\end_layout
+
+\begin_layout Standard
+בסיס:
+\begin_inset Formula $m=1$
+\end_inset
+
+: יוצרים ערימה ומכניסים
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ את האיברים 
+\begin_inset Formula $0,-1$
+\end_inset
+
+.
+ לאחר מכן קוראים ל
+\begin_inset Formula $deletemin$
+\end_inset
+
+ שמוחק את 
+\begin_inset Formula $-1$
+\end_inset
+
+, ואנו נשארים עם עץ שהוא צומת עם הערך 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+.
+ לאחר מכן לא נכנסים ללולאה בשורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ומסיימים את הבניה.
+ כלומר, נעשו
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+קריאות ל 
+\begin_inset Formula $Link$
+\end_inset
+
+ ואכן 
+\begin_inset Formula $m-1=1-1=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+צעד: נניח ל 
+\begin_inset Formula $\frac{m}{2}$
+\end_inset
+
+ ונוכיח ל 
+\begin_inset Formula $\frac{m}{2}\cdot2=m$
+\end_inset
+
+ )הקפיצות הן בכפולה של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+כי נתון ש 
+\begin_inset Formula $m$
+\end_inset
+
+ הוא חזקה שלמה של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+(.
+ 
+\end_layout
+
+\begin_layout Standard
+כידוע יכולות להתבצע פעולות 
+\begin_inset Formula $Link$
+\end_inset
+
+ רק בעת קריאה ל
+\begin_inset Formula $deletemin$
+\end_inset
+
+.
+ לכן נעקוב אחרי המתרחש בפקודה זו בלבד.
+ אכן, בעת הקריאה ל
+\begin_inset Formula $deletemin$
+\end_inset
+
+ אנו מסירים את הצומת שערכו 
+\begin_inset Formula $-1$
+\end_inset
+
+ ונשארים עם 
+\begin_inset Formula $m$
+\end_inset
+
+ איברים.
+ כעת, נשים לב כי אם נסמן את מספר פעולות הלינקים שנעשו על 
+\begin_inset Formula $m=2^{k}$
+\end_inset
+
+ עצים בגודל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ב 
+\begin_inset Formula $T(m)$
+\end_inset
+
+, מתקיים: 
+\begin_inset Formula $T(m)=2\cdot T(\frac{m}{2})+1$
+\end_inset
+
+.
+ אכן, האלגוריתם פועל בצורה בה מכניסים את העצים לפי סדר ההכנסה לתאים לפי
+ הדרגה ומבצעים לינקים בהתאם, כאשר לאחר ביצוע הלינקים על 
+\begin_inset Formula $\frac{m}{2}$
+\end_inset
+
+ העצים המתאימים נקבל שנוצר עץ אחד בדרגה 
+\begin_inset Formula $log\frac{m}{2}=k-1$
+\end_inset
+
+.
+ כעת, ממשיכים לעשות לינקים על 
+\begin_inset Formula $\frac{m}{2}$
+\end_inset
+
+ האיברים הנותרים וגם כאן בסוף התהליך נוצר עץ אחד בדרגה 
+\begin_inset Formula $k-1$
+\end_inset
+
+.
+ לבסוף מבצעים 
+\begin_inset Formula $link$
+\end_inset
+
+ אחרון בין שני העצים בדרגה 
+\begin_inset Formula $k-1$
+\end_inset
+
+ ומקבלים עץ בדרגה 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ כלומר קיבלנו
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+סך הכל 
+\begin_inset Formula $2T(\frac{m}{2})+1$
+\end_inset
+
+.
+ כעת, מהנחת האינדוקציה נקבל כי 
+\begin_inset Formula $T(\frac{m}{2})=\frac{m}{2}-1$
+\end_inset
+
+ ולכן:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T(m)=2\cdot T(\frac{m}{2})+1=2\cdot(\frac{m}{2}-1)+1=m-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כנדרש.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Potential=3-log_{2}m$
+\end_inset
+
+.
+ הסבר:
+\end_layout
+
+\begin_layout Standard
+הנוסחא לפוטנציאל היא : 
+\begin_inset Formula $\#trees-2\cdot\#marked$
+\end_inset
+
+.
+ כפי שהוסבר קודם לכן, בסוף הקריאה ל
+\begin_inset Formula $deletemin$
+\end_inset
+
+ נוצר עץ בודד בדרגה 
+\begin_inset Formula $k$
+\end_inset
+
+ )עבור 
+\begin_inset Formula $m=2^{k}$
+\end_inset
+
+(, ובנוסף בכל קריאה ל 
+\begin_inset Formula $decreasekey$
+\end_inset
+
+ יש בדיוק 
+\begin_inset Formula $cut$
+\end_inset
+
+ אחד.
+ כלומר, לאחר 
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+ קריאות ל
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+, ומכך שבכל פעולת 
+\begin_inset Formula $cut$
+\end_inset
+
+ מספר העצים גדל ב-
+\numeric on
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+נקבל שמספר העצים כעת הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $1+(log_{2}m)$
+\end_inset
+
+.
+ לגבי מספר הצמתים המסומנים, נשים לב כי בכל פעולת 
+\begin_inset Formula $cut$
+\end_inset
+
+ מלבד הראשונה )בקריאה הראשונה השורש של העץ איבד ילד ולפי האלגוריתם לא מסמנים
+ אותו( הורה אחר הופך להיות מ 
+\begin_inset Formula $unmarked$
+\end_inset
+
+ ל 
+\begin_inset Formula $marked$
+\end_inset
+
+.
+ לכן, מכך שיש 
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+ פעולות 
+\begin_inset Formula $cut$
+\end_inset
+
+ נקבל שמספר הצמתים המסומנים בסוף התכנית היא 
+\begin_inset Formula $(log_{2}m)-1$
+\end_inset
+
+.
+ סך הכל נקבל:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Potential=\#trees-2\cdot\#marked=1+log_{2}m-2\cdot((log_{2}m)-1)=3-log_{2}m$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ד.
+ 
+\begin_inset Formula $totalLinks=m-1$
+\end_inset
+
+.
+ הסבר: מאחר שהשוני היחיד בין סעיף ג' ל-ד' הוא בצומת שעליו עושים 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ שבכל מקרה לא משפיע על כמות הלינקים, נקבל שכמות הלינקים בסעיף זה זהה לכמות
+ הלינקים בסעיף ג כלומר 
+\begin_inset Formula $m-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $totalCuts=(log_{2}m)-1$
+\end_inset
+
+.
+ הסבר: 
+\end_layout
+
+\begin_layout Standard
+נשים לב כי כעת הפעולה 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ בכל איטרציה של שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מתבצעת על המסלול הארוך ביותר של העץ הבודד שהתקבל בסוף ביצוע שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+.
+ כלומר, 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ על המסלול השמאלי ביותר.
+ מאחר שהאיטרציה הראשונה היא 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ על השורש, לא מבצעים 
+\begin_inset Formula $cut$
+\end_inset
+
+, ובכל שאר האיטרציות כן מבצעים 
+\begin_inset Formula $cut$
+\end_inset
+
+ שכן הקריאות הן לא על השורש.
+ מאחר שיש 
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+ איטרציות נקבל שיש 
+\begin_inset Formula $(log_{2}m)-1$
+\end_inset
+
+ חיתוכים.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Potential=4-log_{2}m$
+\end_inset
+
+.
+ הסבר: כפי שנאמר קודם לכן, מאחר שלאחר ביצוע שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+יש עץ בודד, וכן כמות העצים גדלה ככמות החיתוכים, נקבל שכמות העצים בסוף שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא 
+\begin_inset Formula $1+(log_{2}m)-1=log_{2}m$
+\end_inset
+
+.
+ כמו כן, מספר הצמתים המסומנים הוא 
+\begin_inset Formula $(log_{2}m)-2$
+\end_inset
+
+, שכן, באיטרציה בראשונה מבצעים 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ על השורש ומאחר שלשורש אין אב אין את מי לסמן, ובאיטרציה השנייה מבצעים 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ על בן של השורש וכידוע את השורש לא מסמנים אף פעם.
+ בכל שאר 
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+ האיטרציות הנכונות ממשיכים לרדת דרך המסלול השמאלי ביותר ככה שמכאן והלאה
+ פעולות 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ לא פועלות יותר על השורש או על בניו )בניו הישירים(.
+ לכן סך הכל נקבל: 
+\begin_inset Formula $Potential=log_{2}m-2((log_{2}m)-2)=4-log_{2}m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+ה.
+ 
+\begin_inset Formula $tatalLinks=0$
+\end_inset
+
+.
+ הסבר:
+\end_layout
+
+\begin_layout Standard
+מכך שלינקים יכולים להתבצע רק כתוצאה מקריאה ל 
+\begin_inset Formula $deletemin$
+\end_inset
+
+, נקבל כי לאחר הסרה של שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מספר הלינקים יהיה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $totalCuts=0$
+\end_inset
+
+.
+ הסבר:
+\end_layout
+
+\begin_layout Standard
+מכך שההכנסה עצלה, כאשר נגיע לשורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+יהיו 
+\begin_inset Formula $m+1$
+\end_inset
+
+ עצים שכל אחד בגודל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+כלומר כל עץ הוא שורש בודד, ולכן כאשר נבצע 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ על צומת כלשהו לא יתבצע 
+\begin_inset Formula $cut$
+\end_inset
+
+.
+ בנוסף אף צומת לא יהפוך להיות מסומן )בדיוק מהסיבה שכל צומת הוא שורש של עץ
+ אחר(.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Potential=m+1$
+\end_inset
+
+.
+ הסבר:
+\end_layout
+
+\begin_layout Standard
+בסך הכל קיבלנו שבסוף ריצת התכנית יש 
+\begin_inset Formula $m+1$
+\end_inset
+
+ עצים ומספר הצמתים המסומנים הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, ולכן נקבל: 
+\begin_inset Formula $Potential=\#trees-2\cdot\#marked=m+1-2\cdot0=m+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+ו.
+ נסמן ב
+\begin_inset Formula $x$
+\end_inset
+
+ את הצומת שערכו 
+\begin_inset Formula $m-2$
+\end_inset
+
+, וב 
+\begin_inset Formula $root$
+\end_inset
+
+ את השורש של העץ הבודד שבערימה שנוצר לאחר ביצוע שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $totalLinks=m-1$
+\end_inset
+
+.
+ הסבר:
+\end_layout
+
+\begin_layout Standard
+מאחר שהשוני היחיד בתוכנית החדשה ביחס לתוכנית שבסעיף ג' הוא בהוספת פעולת
+ 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+, ומאחר שלינקים קורים רק כתוצאה מקריאה ל
+\begin_inset Formula $deletemin$
+\end_inset
+
+, נקבל שמספר הלינקים זהה בהשוואה לסעיף ג' כלומר 
+\begin_inset Formula $m-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $totalCuts=(2\cdot log_{2}m)-1$
+\end_inset
+
+.
+ הסבר:
+\end_layout
+
+\begin_layout Standard
+כעת, בנוסף לכמות הפעמים שהיו 
+\begin_inset Formula $cut$
+\end_inset
+
+ שהיו בשלוש השורות הראשונות )חושב בסעיף ג'- 
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+( יש עוד קריאה ל
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ על צומת שהוא לא בן של השורש.
+ נוכיח כי כמות החיתוכים שייעשו כתוצאה מכך היא 
+\begin_inset Formula $(log_{2}m)-1$
+\end_inset
+
+ ולכן כמות החיתוכים הכללית היא 
+\begin_inset Formula $-1+log_{2}m+log_{2}m=-1+2\cdot log_{2}m$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+אכן, נשים לב כי כאשר מסיימים את שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+, מבנה העץ הוא כזה ש 
+\begin_inset Formula $x$
+\end_inset
+
+ הוא האבא של העלה השמאלי ביותר של העץ.
+ כמו כן, בסוף הביצוע של שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+נקבל שכל האבות של 
+\begin_inset Formula $x$
+\end_inset
+
+ מסומנים.
+ לכן, כאשר נבצע חיתוך של 
+\begin_inset Formula $x$
+\end_inset
+
+, האב של 
+\begin_inset Formula $x$
+\end_inset
+
+ כבר היה מסומן ולכן יש לחתוך גם אותו, ואז גם האבא של 
+\begin_inset Formula $x.parent$
+\end_inset
+
+ יאבד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ילדים וצריך למחוק גם אותו וכן הלאה עד שמגיעים לכך שמוחקים בן של 
+\begin_inset Formula $root$
+\end_inset
+
+ ואז עוצרים.
+ כלומר כמות החיתוכים בקריאה זו ל 
+\begin_inset Formula $decreaseKey$
+\end_inset
+
+ היא ככמות הצמתים שיש לעבור מ
+\begin_inset Formula $x$
+\end_inset
+
+ לשורש.
+ 
+\end_layout
+
+\begin_layout Standard
+הוכחנו בתרגיל בית
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שעץ מדרגה 
+\begin_inset Formula $k$
+\end_inset
+
+ הוא בעומק 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ לכן, מכך שלאחר הקריאה ל
+\begin_inset Formula $deletemin$
+\end_inset
+
+ )ולפני הביצוע של שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+(אנו מקבלים עץ בודד מדרגה 
+\begin_inset Formula $k$
+\end_inset
+
+ )נניח ש 
+\begin_inset Formula $m=2^{k}$
+\end_inset
+
+ עבור 
+\begin_inset Formula $k$
+\end_inset
+
+ טבעי(, נקבל שעומקו של עץ זה הוא 
+\begin_inset Formula $k=log_{2}m$
+\end_inset
+
+,כלומר קיים מסלול באורך 
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+ מהשורש לעלה, וכן נשים לב כי הצומת עם הערך 
+\begin_inset Formula $m-2$
+\end_inset
+
+ נמצא במסלול זה.
+ כעת, במהלך הביצוע של שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אנחנו מוחקים בדיוק צומת אחד שהוא במסלול הארוך ביותר מהשורש לעלה והוא העלה
+ עצמו)מתרחש באיטרציה האחרונה עבור 
+\begin_inset Formula $i=m-2^{1}+1$
+\end_inset
+
+, כאשר צומת זה הוא 
+\begin_inset Formula $x.child$
+\end_inset
+
+(.
+ כעת, 
+\begin_inset Formula $x$
+\end_inset
+
+ נהפך להיות העלה של אותו מסלול ולכן אורך המסלול ממנו לשורש התקצר ב-
+\numeric on
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+כלומר הוא 
+\begin_inset Formula $(log_{2}m)-1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Potential=2log_{2}m$
+\end_inset
+
+.
+ הסבר:
+\end_layout
+
+\begin_layout Standard
+כמות העצים היא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+גדולה ב-
+\numeric on
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מכמות החיתוכים )קיים עץ אחד בסוף שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ובהמשך התכנית בכל חיתוך כמות העצים גדלה ב-
+\numeric on
+1
+\numeric off
+ ( ולכן 
+\begin_inset Formula $\#trees=1+(-1+2\cdot log_{2}m)=2log_{2}m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נשים לב כי כמות הצמתים המסומנים היא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, מפני שעד שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מספר המסומנים הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, באיטרציה הראשונה של שורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+ יש חיתוך של הבן של השורש אותו לא מסמנים, ולאחר מכן באיטרציות הבאות בעצם
+ מתבצע סימון של כל הצמתים שנמצאים במסלול הארוך ביותר מהשורש לעלה )המסלול
+ השמאלי ביותר(, כאשר כל הסימונים הללו מתבטלים כתוצאה מהקריאה בשורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ שכן אנחנו חותכים את כל הצמתים במסלול הזה )החל מ
+\begin_inset Formula $x$
+\end_inset
+
+ עד לבן של השורש, כאשר שוב פעם לא מסמנים את 
+\begin_inset Formula $root$
+\end_inset
+
+(.
+ 
+\end_layout
+
+\begin_layout Standard
+סך הכל נקבל: 
+\begin_inset Formula $Potential=\#trees-2\cdot marked=2log_{2}m+0=2log_{2}m$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+הערה: אציין כי לפי האלגוריתם שראינו בכיתה, כאשר חותכים צומת, אם היה מסומן
+ הופכים אותו ללא מסומן ואם הוא לא מסומן משאירים אותו כזה, לכן באמת מתקיים
+ שכל הצמתים שהיו במסלול הארוך ביותר בעץ הופכים ללא מסומנים לאחר שחותכים
+ אותם.
+\end_layout
+
+\begin_layout Standard
+טבלה מסכמת לסעיפים ג' עד ו':
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+case
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+totalLinks
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+totalCuts
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+Potential
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+decreaseKey max cost
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+(c) original
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $m-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $log_{2}m$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3-log_{2}m$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+(skip)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+(d) decKey(m-2^i)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $m-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(log_{2}m)-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4-log_{2}m$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+(skip)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+(e) remove line #2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $m+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+(skip)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang english
+(f) added line #4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $m-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(2\cdot log_{2}m)-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2log_{2}m$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(log_{2}m)-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

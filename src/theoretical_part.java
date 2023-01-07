@@ -8,11 +8,12 @@ import static java.lang.Math.pow;
 
 public class theoretical_part {
     public static void main(String[] args) {
-        System.out.println("question1 - m == 2**1" + build((int)pow(2,1)));
-        System.out.println("question1 - m == 2**2" + build((int)pow(2,2)));
-//        System.out.println("question1 - m == 2**5" + build((int)pow(2,5)));
-//        System.out.println("question1 - m == 2**10" + build((int)pow(2,10)));
-//        System.out.println("question1 - m == 2**15" + build((int)pow(2,15)));
+//        System.out.println("question1 - m == 2**1" + build((int)pow(2,1)));
+//        System.out.println("question1 - m == 2**2" + build((int)pow(2,2)));
+        System.out.println("question1 - m == 2**3" + build((int)pow(2,3)));
+//       System.out.println("question1 - m == 2**5" + build((int)pow(2,5)));
+//   System.out.println("question1 - m == 2**10" + build((int)pow(2,10)));
+//       System.out.println("question1 - m == 2**15" + build((int)pow(2,15)));
 //        System.out.println("question1 - m == 2**20" + build((int)pow(2,20)));
 //        System.out.println("end of question 1");
 //        System.out.println("starting question 2");
@@ -23,7 +24,7 @@ public class theoretical_part {
 //        System.out.println("question 2 - m == 3**14 - 1" + build2((int)pow(3,14) - 1));
     }
     public static List<Double> build(int m){
-        long startTime = System.nanoTime();
+        long startTime = System.currentTimeMillis();
         List<Double> result = new ArrayList<>(); // result includes the following: runtime,totallinks,totalcuts,potential
         FibonacciHeap.HeapNode[] list_of_nodes = new FibonacciHeap.HeapNode[m];
         FibonacciHeap heap = new FibonacciHeap();
@@ -42,15 +43,16 @@ public class theoretical_part {
             int y = (int)pow(2,i);
             heap.decreaseKey(list_of_nodes[y - 2], m + 1);
         }
-        long elapsedTime = System.nanoTime() - startTime;
-        result.add(elapsedTime *  0.000001);
+    heap.decreaseKey(list_of_nodes[1], m+1);
+        long elapsedTime = System.currentTimeMillis() - startTime;
+        result.add(elapsedTime *  1.0);
         result.add((double) (heap.total_links()));
         result.add((double) FibonacciHeap.totalCuts());
         result.add((double) heap.potential());
         return result;
     }
     public static List<Double> build2(int m){
-        long startTime = System.nanoTime();
+        long startTime = System.currentTimeMillis();
         List<Double> result = new ArrayList<>();
         FibonacciHeap heap = new FibonacciHeap();
     for (int k = 0; k < m+1; k++){
@@ -59,8 +61,8 @@ public class theoretical_part {
     for (int i = 1; i < ((3*m)/4) + 1; i++){
         heap.deleteMin();
     }
-    long elapsedTime = System.nanoTime() - startTime;
-    result.add(elapsedTime * 0.000001);
+    long elapsedTime = System.currentTimeMillis() - startTime;
+    result.add(elapsedTime * 1.0);
         result.add((double) (heap.total_links()));
         result.add((double) FibonacciHeap.totalCuts());
         result.add((double) heap.potential());
