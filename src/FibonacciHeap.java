@@ -154,6 +154,7 @@ public class FibonacciHeap
                 continue;
             if (check==null){
                 this.first = root;
+                check = root;
                 continue;
             }
             if (root!= null){
@@ -345,7 +346,7 @@ public class FibonacciHeap
             temp = temp.right;
             cnt+=1;
         }
-        return cnt + (2*this.mark_cnt) ;
+        return cnt - (2*this.mark_cnt) ;
     }
 
     /**
