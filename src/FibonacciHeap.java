@@ -42,7 +42,7 @@ public class FibonacciHeap
         }
         else{
             this.first.add_latest(node);
-            first = node;
+            this.first = node;
             //this.min.add_brother(node);
 
         }
@@ -79,9 +79,11 @@ public class FibonacciHeap
             temp.parent = null;
             this.first.add_latest(temp);
             temp = temp.right;
+            this.first = temp;
             while(temp != this.min.child){
                 temp.parent = null;
                 this.first.add_latest(temp);
+                this.first = temp;
                 temp = temp.right;
             }
             HeapNode temp_min = this.min.right;
@@ -122,7 +124,6 @@ public class FibonacciHeap
             roots_arr[i] = temp;
             i+=1;
         }
-        this.findNewMin(roots_arr);
         i=0;
         temp = this.min;
         while ((temp != this.min || i==0)&& i<roots_arr.length){
@@ -148,12 +149,15 @@ public class FibonacciHeap
             if (i<roots_arr.length)
                 temp = roots_arr[i];
         }
+        this.findNewMin(rank_arr);
         HeapNode check = null;
         for (HeapNode root: rank_arr){
             if (root == null)
                 continue;
             if (check==null){
                 this.first = root;
+                this.first.left = root;
+                this.first.right = root;
                 check = root;
                 continue;
             }
@@ -189,10 +193,7 @@ public class FibonacciHeap
         links_cnt+=1;
         return smaller;
     }
-    public HeapNode findMin()
-    {
-        return this.min;
-    }
+
 
     /**
      * public void meld (FibonacciHeap heap2)
@@ -241,6 +242,7 @@ public class FibonacciHeap
             if (temp.getRank()>max_rank){
                 max_rank = temp.getRank();
             }
+            temp = temp.right;
         }
         int[] arr = new int[max_rank+1];
         temp = this.min.right;
@@ -261,7 +263,7 @@ public class FibonacciHeap
      */
     public void delete(HeapNode x)
     {
-        this.decreaseKey(x,Integer.MAX_VALUE);
+        this.decreaseKey(x,x.getKey()- min.getKey()+1);
         this.deleteMin();
         return;
     }
@@ -315,6 +317,7 @@ public class FibonacciHeap
             x.right.left = x.left;
         }
         this.first.add_latest(x);
+        this.first = x;
         if (x.getKey()<min.getKey())
             min = x;
     }
@@ -362,7 +365,7 @@ public class FibonacciHeap
      */
     public static int totalLinks()
     {
-        return links_cnt;
+        return FibonacciHeap.links_cnt;
     }
 
     /**
@@ -393,7 +396,6 @@ public class FibonacciHeap
 
     public HeapNode first_node(){return  this.first;} // returns the first node of the heap
 
-    public int total_links(){return FibonacciHeap.links_cnt;} // Returns the number of links occurred throughout the program
     /**
      * public class HeapNode
      *
@@ -429,14 +431,7 @@ public class FibonacciHeap
         public int getKey() {
             return this.key;
         }
-        public void add_brother(HeapNode node){
-            node.right = this.right;
-            this.right.left = node;
-            node.left = this;
-            this.right = node;
-            if (this.parent!= null)
-                this.parent.rank+=1;
-        }
+
         public void add_latest(HeapNode node){
             node.right = this;
             this.left.right = node;
