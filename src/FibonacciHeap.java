@@ -78,14 +78,27 @@ public class FibonacciHeap
         else{ // if min has children, iterate over them while disconnecting them from min and adding them to the heap as independent trees
             HeapNode temp = this.min.child;
             temp.parent = null;
+            HeapNode temp2 = temp.right;
             this.first.add_latest(temp);
-            temp = temp.right;
             this.first = temp;
-            while(temp != this.min.child){
-                temp.parent = null;
-                this.first.add_latest(temp);
-                this.first = temp;
-                temp = temp.right;
+            int i=0;
+            HeapNode temp3 = null;
+            //HeapNode temp4 = null;
+            while(temp2 != this.min.child && temp3!=this.min.child){
+                if (i==0){
+                    temp2.parent = null;
+                    temp3 = temp2.right;
+                    this.first.add_latest(temp2);
+                    this.first = temp2;
+                    i=1;
+                }
+                else {
+                    temp3.parent = null;
+                    temp2 = temp3.right;
+                    this.first.add_latest(temp3);
+                    this.first = temp3;
+                    i=0;
+                }
             }
             HeapNode temp_min = this.min.right;
             this.min.removeMin();
@@ -126,8 +139,8 @@ public class FibonacciHeap
             i+=1;
         }
         i=0;
-        temp = this.min;
-        while ((temp != this.min || i==0)&& i<roots_arr.length){ // fill buckets and link if necessary as seen in class
+        temp = this.first;
+        while ((temp != this.first || i==0)&& i<roots_arr.length){ // fill buckets and link if necessary as seen in class
             if (temp == null){
                 //System.out.println(i);
                 break;
@@ -140,8 +153,9 @@ public class FibonacciHeap
             }
             else{
                 while(rank_arr[temp.getRank()] != null){
+                    int rank = temp.getRank();
                     HeapNode new_node = Link(rank_arr[temp.getRank()], temp);
-                    rank_arr[temp.getRank()] = null;
+                    rank_arr[rank] = null;
                     temp = new_node;
                 }
             }
@@ -151,6 +165,7 @@ public class FibonacciHeap
                 temp = roots_arr[i];
         }
         this.findMin(rank_arr);
+        //rank_arr[temp.getRank()] = temp;
         HeapNode check = null;
         for (HeapNode root: rank_arr){ // rearranging attributes of the new roots
             if (root == null)
@@ -183,7 +198,7 @@ public class FibonacciHeap
         if (smaller.child!= null){
             smaller.child.add_latest(bigger);
             smaller.child = bigger;
-            smaller.setRank(smaller.getRank()+1);
+            //smaller.setRank(smaller.getRank()+1);
         }
         else{
             smaller.child = bigger;
@@ -301,10 +316,10 @@ public class FibonacciHeap
 
         }
     }
-    public void cut(HeapNode x, HeapNode y){ 
+    public void cut(HeapNode x, HeapNode y){
         FibonacciHeap.cuts_cnt+=1;
         x.parent = null;
-        if (x.marked){ // unmark x if it was marked 
+        if (x.marked){ // unmark x if it was marked
             this.mark_cnt -= 1;
             x.marked = false;
         }
@@ -330,7 +345,7 @@ public class FibonacciHeap
      */
     public int nonMarked()
     {
-        return this.size - this.mark_cnt; 
+        return this.size - this.mark_cnt;
     }
 
     /**
