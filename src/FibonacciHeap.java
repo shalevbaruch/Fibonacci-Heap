@@ -78,6 +78,7 @@ public class FibonacciHeap
         else{ // if min has children, iterate over them while disconnecting them from min and adding them to the heap as independent trees
             HeapNode temp = this.min.child;
             temp.parent = null;
+            temp.marked = false;
             HeapNode temp2 = temp.right;
             this.first.add_latest(temp);
             this.first = temp;
@@ -90,6 +91,8 @@ public class FibonacciHeap
                     temp3 = temp2.right;
                     this.first.add_latest(temp2);
                     this.first = temp2;
+                    temp2.marked=false;
+                    this.mark_cnt -= 1;
                     i=1;
                 }
                 else {
@@ -97,6 +100,8 @@ public class FibonacciHeap
                     temp2 = temp3.right;
                     this.first.add_latest(temp3);
                     this.first = temp3;
+                    temp3.marked = false;
+                    this.mark_cnt -= 1;
                     i=0;
                 }
             }
@@ -167,19 +172,29 @@ public class FibonacciHeap
         this.findMin(rank_arr);
         //rank_arr[temp.getRank()] = temp;
         HeapNode check = null;
-        for (HeapNode root: rank_arr){ // rearranging attributes of the new roots
+        for (int j=rank_arr.length-1;j>=0;j--){ // rearranging attributes of the new roots
+            HeapNode root = rank_arr[j];
             if (root == null)
                 continue;
             if (check==null){
                 this.first = root;
                 this.first.left = root;
                 this.first.right = root;
+                if (root.marked){
+                    this.mark_cnt -= 1;
+                    root.marked = false;
+                }
                 check = root;
                 continue;
             }
             if (root!= null){
                 this.first.add_latest(root);
                 this.first = root;
+                if (root.marked){
+                    this.mark_cnt -= 1;
+                    root.marked = false;
+                }
+
             }
         }
     }
