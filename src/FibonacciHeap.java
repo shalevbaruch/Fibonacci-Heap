@@ -391,7 +391,8 @@ public class FibonacciHeap
     }
 
     /**
-     * public int potential()
+     * public int 
+     ntial()
      *
      * This function returns the current potential of the heap, which is:
      * Potential = #trees + 2*#marked
@@ -410,7 +411,7 @@ public class FibonacciHeap
             temp = temp.right;
             cnt+=1;
         }
-        return cnt - (2*this.mark_cnt) ;
+        return cnt + (2*this.mark_cnt) ;
     }
 
     /**
