@@ -12,6 +12,7 @@ public class FibonacciHeap
     private int mark_cnt;
     private static int cuts_cnt;
     private static int links_cnt;
+    private int trees_cnt;
     /**
      * public boolean isEmpty()
      *
@@ -49,6 +50,7 @@ public class FibonacciHeap
         if (node.getKey()<this.min.getKey()){ //update min if necessary
             this.min = node;
         }
+        this.trees_cnt+=1;
         this.size+=1; // update size
         return node;
 
@@ -67,6 +69,7 @@ public class FibonacciHeap
             this.min = null;
             this.size-=1;
             this.first = null;
+            this.trees_cnt-=1;
             return;
         }
         else if (this.min.child == null){ // check if min has no children, and then delete from the heap
@@ -85,6 +88,7 @@ public class FibonacciHeap
             HeapNode temp2 = temp.right;
             this.first.add_latest(temp);
             this.first = temp;
+            //this.trees_cnt+=1;
             int i=0;
             HeapNode temp3 = null;
             //HeapNode temp4 = null;
@@ -93,6 +97,7 @@ public class FibonacciHeap
                     temp2.parent = null;
                     temp3 = temp2.right;
                     this.first.add_latest(temp2);
+                    this.trees_cnt+=1;
                     this.first = temp2;
                     if (temp2.marked){
                         this.mark_cnt -= 1;
@@ -104,6 +109,7 @@ public class FibonacciHeap
                     temp3.parent = null;
                     temp2 = temp3.right;
                     this.first.add_latest(temp3);
+                    this.trees_cnt+=1;
                     this.first = temp3;
                     if (temp3.marked){
                         this.mark_cnt -= 1;
@@ -149,8 +155,8 @@ public class FibonacciHeap
     }
     public void Successive_Linking (){
         int cnt=0;
-        HeapNode[] rank_arr = new HeapNode[this.size+1];
-        HeapNode[] roots_arr = new HeapNode[this.size];
+        HeapNode[] rank_arr = new HeapNode[((int)Math.ceil(Math.log(this.size)/Math.log(2)))+1];
+        HeapNode[] roots_arr = new HeapNode[this.trees_cnt];
         int i=0;
         HeapNode temp = this.min;
         roots_arr[i] = temp;
@@ -199,11 +205,13 @@ public class FibonacciHeap
         this.findMin(rank_arr);
         //rank_arr[temp.getRank()] = temp;
         HeapNode check = null;
+        int new_size=0;
         for (int j=rank_arr.length-1;j>=0;j--){ // rearranging attributes of the new roots
             HeapNode root = rank_arr[j];
             if (root == null)
                 continue;
             if (check==null){
+                new_size+=1;
                 this.first = root;
                 this.first.left = root;
                 this.first.right = root;
@@ -215,6 +223,7 @@ public class FibonacciHeap
                 continue;
             }
             if (root!= null){
+                new_size+=1;
                 this.first.add_latest(root);
                 this.first = root;
                 if (root.marked){
@@ -224,6 +233,7 @@ public class FibonacciHeap
 
             }
         }
+        this.trees_cnt = new_size;
     }
     public HeapNode Link(HeapNode node1, HeapNode node2){ // make the smaller root a child of the bigger root
         HeapNode smaller;
@@ -391,8 +401,7 @@ public class FibonacciHeap
     }
 
     /**
-     * public int 
-     ntial()
+     * public int potential()
      *
      * This function returns the current potential of the heap, which is:
      * Potential = #trees + 2*#marked
