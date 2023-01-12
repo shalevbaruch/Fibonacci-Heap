@@ -55,6 +55,11 @@ public class FibonacciHeap
         return node;
 
     }
+    public HeapNode KminInsert(HeapNode node){
+        HeapNode temp = this.insert(node.getKey());
+        temp.setSource(node);
+        return node;
+    }
 
     /**
      * public void deleteMin()
@@ -133,7 +138,7 @@ public class FibonacciHeap
      * Returns the node of the heap whose key is minimal, or null if the heap is empty.
      *
      */
-    public void findMin(HeapNode[] arr){ // iterate over all roots to find new min
+    public HeapNode findMin(HeapNode[] arr){ // iterate over all roots to find new min
         //this.min = this.first;
         //int min_val=0;
         boolean flag = true;
@@ -152,6 +157,7 @@ public class FibonacciHeap
             }
 
         }
+        return min;
     }
     public void Successive_Linking (){
         int cnt=0;
@@ -458,8 +464,32 @@ public class FibonacciHeap
      */
     public static int[] kMin(FibonacciHeap H, int k)
     {
-        int[] arr = new int[100];
-        return arr; // should be replaced by student code
+        int[] ret = new int[k];
+        if (k==0)
+            return new int[0];
+        FibonacciHeap aid = new FibonacciHeap();
+        aid.insert(H.min.key);
+        int i=0;
+        while (i<k){
+            int minKey = aid.min.key;
+            HeapNode source = aid.min.getSource();
+            ret[i] = minKey;
+            HeapNode child = source.child;
+            if (child == null){
+                continue;
+            }
+            else{
+                child = child.right;
+                while (child!= source.child){
+                    aid.KminInsert(child);
+                    child = child.right;
+                }
+            }
+            aid.deleteMin();
+            i+=1;
+
+        }
+        return ret; // should be replaced by student code
     }
 
     public HeapNode first_node(){return  this.first;} // returns the first node of the heap
@@ -473,19 +503,28 @@ public class FibonacciHeap
      */
     public static class HeapNode{
 
-        public int key;
+        private int key;
         private HeapNode child;
         private HeapNode parent;
         private HeapNode right;
         private HeapNode left;
         private boolean marked;
         private int rank;
+        private HeapNode source; // for kMin
 
 
         public HeapNode(int key) {
             this.key = key;
             this.marked = false;
             this.rank = 0;
+        }
+
+        public HeapNode getSource() {
+            return source;
+        }
+
+        public void setSource(HeapNode source) {
+            this.source = source;
         }
 
         public int getRank() {
