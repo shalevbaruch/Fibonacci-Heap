@@ -13,15 +13,24 @@ public class FibonacciHeap
     private static int cuts_cnt;
     private static int links_cnt;
     private int trees_cnt;
+
+    public HeapNode getFirst() {
+        return first;
+    }
+    public HeapNode findMin(){
+        return this.min;
+    }
+
     /**
      * public boolean isEmpty()
      *
      * Returns true if and only if the heap is empty.
      *
      */
+
     public boolean isEmpty()
     {
-        return this.size ==0;
+        return this.size ==0 || this.first == null;
     }
 
     /**
@@ -277,6 +286,16 @@ public class FibonacciHeap
      */
     public void meld (FibonacciHeap heap2) // add heap2 to the end of current heap
     {
+        if (heap2.isEmpty()) {
+            return;
+        }
+        if (this.isEmpty()){
+            this.first = heap2.first;
+            this.min = heap2.min;
+            this.size = heap2.size();
+            this.trees_cnt = heap2.trees_cnt;
+            this.mark_cnt = heap2.mark_cnt;
+        }
         HeapNode first1 = this.first;
         HeapNode first2 = heap2.first;
         HeapNode last1 = first1.left;
@@ -287,6 +306,7 @@ public class FibonacciHeap
         first2.left = last1;
         if (this.min.key>heap2.min.key)
             this.min = heap2.min;
+        this.size+= heap2.size();
         return;
     }
 
@@ -310,6 +330,9 @@ public class FibonacciHeap
      */
     public int[] countersRep()
     {
+        if (this.isEmpty() || this.min == null){
+            return new int[0];
+        }
         int max_rank = this.min.getRank();
         HeapNode temp = this.min.right;
         while (temp!=this.min){ // find max_rank
@@ -468,7 +491,7 @@ public class FibonacciHeap
         if (k==0)
             return new int[0];
         FibonacciHeap aid = new FibonacciHeap();
-        aid.insert(H.min.key);
+        aid.KminInsert(H.min);
         int i=0;
         while (i<k){
             int minKey = aid.min.key;
@@ -476,9 +499,12 @@ public class FibonacciHeap
             ret[i] = minKey;
             HeapNode child = source.child;
             if (child == null){
+                i+=1;
+                aid.deleteMin();
                 continue;
             }
             else{
+                aid.KminInsert(child);
                 child = child.right;
                 while (child!= source.child){
                     aid.KminInsert(child);
@@ -550,6 +576,26 @@ public class FibonacciHeap
         public void removeMin(){
             this.right.left = this.left;
             this.left.right = this.right;
+        }
+
+        public HeapNode getChild() {
+            return child;
+        }
+
+        public boolean getMarked() {
+            return this.marked;
+        }
+
+        public HeapNode getParent() {
+            return parent;
+        }
+
+        public HeapNode getPrev() {
+            return left;
+        }
+
+        public HeapNode getNext() {
+            return right;
         }
     }
 }
