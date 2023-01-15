@@ -510,12 +510,12 @@ public class FibonacciHeap
         FibonacciHeap aid = new FibonacciHeap();
         aid.KminInsert(H.min);
         int i=0;
-        while (i<k){
+        while (i<k){ // while i<k set ret[i] to current min and add it's children to aid heap
             int minKey = aid.min.key;
             HeapNode source = aid.min.getSource();
             ret[i] = minKey;
             HeapNode child = source.child;
-            if (child == null){
+            if (child == null){ // if min doesn't has children simply delete it
                 i+=1;
                 aid.deleteMin();
                 continue;
@@ -582,7 +582,7 @@ public class FibonacciHeap
             return this.key;
         }
 
-        public void add_latest(HeapNode node){
+        public void add_latest(HeapNode node){ // add node to the left of current node
             node.right = this;
             this.left.right = node;
             node.left = this.left;
@@ -590,7 +590,7 @@ public class FibonacciHeap
             if (this.parent!= null)
                 this.parent.rank+=1;
         }
-        public void add_latest2(HeapNode node){
+        public void add_latest2(HeapNode node){ // add node to the right of current node (used in consolidate when adding min's children as roots)
             node.left = this;
             this.right.left = node;
             node.right = this.right;
@@ -603,24 +603,5 @@ public class FibonacciHeap
             this.left.right = this.right;
         }
 
-        public HeapNode getChild() {
-            return child;
-        }
-
-        public boolean getMarked() {
-            return this.marked;
-        }
-
-        public HeapNode getParent() {
-            return parent;
-        }
-
-        public HeapNode getPrev() {
-            return left;
-        }
-
-        public HeapNode getNext() {
-            return right;
-        }
     }
 }
