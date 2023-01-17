@@ -45,7 +45,7 @@ public class FibonacciHeap
             this.first = node;
         }
         else{  // add new node to the left of the first node
-            this.first.add_latest(node);
+            this.first.add_left(node);
             this.first = node;
             //this.min.add_brother(node);
 
@@ -97,23 +97,17 @@ public class FibonacciHeap
                 temp.marked = false;
             }
             HeapNode temp2 = temp.right;
-            this.min.add_latest2(temp);
+            this.min.add_right(temp);
             HeapNode origMin = this.min;
             this.min = temp;
-            //this.first.add_latest(temp);
-            //this.first = temp;
-            //this.trees_cnt+=1;
             int i=0;
             HeapNode temp3 = null;
-            //HeapNode temp4 = null;
             while(temp2 != origMin.child && temp3!=origMin.child){
                 if (i==0){
                     temp2.parent = null;
                     temp3 = temp2.right;
-                   // this.first.add_latest(temp2);
-                    this.min.add_latest2(temp2);
+                    this.min.add_right(temp2);
                     this.trees_cnt+=1;
-                    //this.first = temp2;
                     this.min = temp2;
                     if (temp2.marked){
                         this.mark_cnt -= 1;
@@ -124,10 +118,8 @@ public class FibonacciHeap
                 else {
                     temp3.parent = null;
                     temp2 = temp3.right;
-                    //this.first.add_latest(temp3);
-                    this.min.add_latest2(temp3);
+                    this.min.add_right(temp3);
                     this.trees_cnt+=1;
-                    //this.first = temp3;
                     this.min = temp3;
                     if (temp3.marked){
                         this.mark_cnt -= 1;
@@ -137,12 +129,10 @@ public class FibonacciHeap
                 }
             }
 
-            //HeapNode temp_min = this.min.right;
             if (origMin == this.first){
                 this.first = origMin.right;
             }
             origMin.removeMin();
-            //this.min = temp_min;
             this.size-=1;
         }
         this.Successive_Linking();
@@ -156,8 +146,6 @@ public class FibonacciHeap
      *
      */
     public HeapNode findMin(HeapNode[] arr){ // iterate over all roots to find new min
-        //this.min = this.first;
-        //int min_val=0;
         boolean flag = true;
         for (HeapNode node: arr){
             if (node != null){
@@ -203,9 +191,6 @@ public class FibonacciHeap
                 //System.out.println(i);
                 break;
             }
-            //System.out.println("h");
-            //if (temp.left == null || temp.right == null || temp == null)
-            //   System.out.println(temp.getKey());
             if (rank_arr[temp.getRank()] == null){
                 rank_arr[temp.getRank()] = temp;
             }
@@ -248,7 +233,7 @@ public class FibonacciHeap
             }
             if (root!= null){
                 new_size+=1;
-                this.first.add_latest(root);
+                this.first.add_left(root);
                 this.first = root;
                 if (root.marked){
                     this.mark_cnt -= 1;
@@ -272,9 +257,8 @@ public class FibonacciHeap
         }
         bigger.parent = smaller;
         if (smaller.child!= null){
-            smaller.child.add_latest(bigger);
+            smaller.child.add_left(bigger);
             smaller.child = bigger;
-            //smaller.setRank(smaller.getRank()+1);
         }
         else{
             smaller.child = bigger;
@@ -429,7 +413,7 @@ public class FibonacciHeap
             x.left.right = x.right;
             x.right.left = x.left;
         }
-        this.first.add_latest(x); // add x as root
+        this.first.add_left(x); // add x as root
         this.first = x;
         this.trees_cnt+=1;
         if (x.getKey()<min.getKey()) // update min if necessary
@@ -582,7 +566,7 @@ public class FibonacciHeap
             return this.key;
         }
 
-        public void add_latest(HeapNode node){ // add node to the left of current node
+        public void add_left(HeapNode node){ // add node to the left of current node
             node.right = this;
             this.left.right = node;
             node.left = this.left;
@@ -590,7 +574,7 @@ public class FibonacciHeap
             if (this.parent!= null)
                 this.parent.rank+=1;
         }
-        public void add_latest2(HeapNode node){ // add node to the right of current node (used in consolidate when adding min's children as roots)
+        public void add_right(HeapNode node){ // add node to the right of current node (used in consolidate when adding min's children as roots)
             node.left = this;
             this.right.left = node;
             node.right = this.right;
